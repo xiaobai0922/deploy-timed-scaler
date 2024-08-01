@@ -7,4 +7,14 @@ layout:
 - go.kubebuilder.io/v4
 projectName: deploy-timed-scaler
 repo: github.com/xiaobai0922/deploy-timed-scaler
+resources:
+- api:
+    crdVersion: v1
+    namespaced: true
+  controller: true
+  domain: bailu.io
+  group: scaler
+  kind: TimedScaler
+  path: github.com/xiaobai0922/deploy-timed-scaler/api/v1alpha1
+  version: v1alpha1
 version: "3"

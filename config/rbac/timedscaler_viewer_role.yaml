@@ -1,0 +1,27 @@
+# permissions for end users to view timedscalers.
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  labels:
+    app.kubernetes.io/name: clusterrole
+    app.kubernetes.io/instance: timedscaler-viewer-role
+    app.kubernetes.io/component: rbac
+    app.kubernetes.io/created-by: deploy-timed-scaler
+    app.kubernetes.io/part-of: deploy-timed-scaler
+    app.kubernetes.io/managed-by: kustomize
+  name: timedscaler-viewer-role
+rules:
+- apiGroups:
+  - scaler.bailu.io
+  resources:
+  - timedscalers
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - scaler.bailu.io
+  resources:
+  - timedscalers/status
+  verbs:
+  - get
